@@ -8,6 +8,7 @@ import Topbar from "../header/Topbar";
 import DropZoneImage from "../../pages/image/DropZoneImage";
 import CollapseTable from "../../pages/material/CollapseTable";
 import Test from "../../pages/Test";
+import ReactLocalization from "../../pages/ReactLocalization";
 import PasswordValidation from "../../pages/PasswordValidation";
 
 
@@ -45,6 +46,9 @@ const Navigation = () => {
           </Route>
           <Route exact path="/password-validation">
             <PasswordValidation />
+          </Route>
+          <Route exact path="/react-localization">
+            <ReactLocalization />
           </Route>
           <Route path="*">
             <NotFound />

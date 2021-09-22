@@ -158,8 +158,14 @@ const Topbar = () => {
         <div style={{ flex: 1 }}>Item 1</div>
 
         {/* ========================================================================= */}
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 3 }}>
           <div className={classes.flexStyle2}>
+          <div className={`${classes.rightItemPadding}`}>
+          <Link to="/react-localization" className={classes.linkStyle}>
+          React Localization
+          </Link>
+       
+          </div>
           <div className={`${classes.rightItemPadding}`}>
           <Link to="/password-validation" className={classes.linkStyle}>
           Password Validation
