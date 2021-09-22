@@ -7,6 +7,8 @@ import NotFound from "../../pages/NotFound";
 import Topbar from "../header/Topbar";
 import DropZoneImage from "../../pages/image/DropZoneImage";
 import CollapseTable from "../../pages/material/CollapseTable";
+import Test from "../../pages/Test";
+import PasswordValidation from "../../pages/PasswordValidation";
 
 
 
@@ -26,6 +28,9 @@ const Navigation = () => {
           <Route exact path="/">
             <Home />
           </Route>
+          <Route exact path="/test">
+            <Test />
+          </Route>
           <Route exact path="/single-image">
             <SingleImage />
           </Route>
@@ -37,6 +42,9 @@ const Navigation = () => {
           </Route>
           <Route exact path="/collapse-table">
             <CollapseTable />
+          </Route>
+          <Route exact path="/password-validation">
+            <PasswordValidation />
           </Route>
           <Route path="*">
             <NotFound />

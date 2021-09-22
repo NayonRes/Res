@@ -104,6 +104,10 @@ const useStyles = makeStyles((theme) => ({
   imageStyle: {
     borderRadius: "50%",
   },
+  linkStyle:{
+    textDecoration:'none',
+    color:'black'
+  }
 }));
 const Topbar = () => {
   const classes = useStyles();
@@ -156,7 +160,12 @@ const Topbar = () => {
         {/* ========================================================================= */}
         <div style={{ flex: 1 }}>
           <div className={classes.flexStyle2}>
-            item 2
+          <div className={`${classes.rightItemPadding}`}>
+          <Link to="/password-validation" className={classes.linkStyle}>
+          Password Validation
+          </Link>
+       
+          </div>
             <div className={`${classes.flexStyle} ${classes.rightItemPadding}`}>
               <div className={classes.buttonItemPadding}>
                 <Button
