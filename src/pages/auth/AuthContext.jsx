@@ -1,22 +1,22 @@
-import React, { createContext, useReducer, useEffect } from 'react';
+import React, { createContext, useReducer, useEffect,  } from "react";
 // import axios from "axios";
-import jwt_decode from 'jwt-decode';
+import jwt_decode from "jwt-decode";
 
-import authReducer from './authReducer';
+import authReducer from "./authReducer";
 
 export const AuthContext = createContext();
 
 export default function AuthContextProvider(props) {
   const [admin_user_auth, dispatch] = useReducer(authReducer, {}, () => {
-    const localData = localStorage.getItem('admin_user_auth');
+    const localData = localStorage.getItem("admin_user_auth");
     return localData ? JSON.parse(localData) : {};
   });
 
-  const login = async data => {
+  const login = async (data) => {
     // return console.log("login", jwt_decode(data.access_token));
     let user = jwt_decode(data.access_token);
     dispatch({
-      type: 'LOGIN',
+      type: "LOGIN",
       payload: {
         access_token: data.access_token,
         refresh_token: data.refresh_token,
@@ -26,9 +26,9 @@ export default function AuthContextProvider(props) {
   };
 
   const logout = () => {
-    localStorage.setItem('timer', '');
+    localStorage.setItem("timer", "");
     dispatch({
-      type: 'LOGOUT',
+      type: "LOGOUT",
       payload: {},
     });
   };
@@ -52,8 +52,12 @@ export default function AuthContextProvider(props) {
   // };
 
   useEffect(() => {
-    localStorage.setItem('admin_user_auth', JSON.stringify(admin_user_auth));
+    localStorage.setItem("admin_user_auth", JSON.stringify(admin_user_auth));
   }, [login]);
 
-  return <AuthContext.Provider value={{ login, admin_user_auth, logout }}>{props.children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ login, admin_user_auth, logout }}>
+      {props.children}
+    </AuthContext.Provider>
+  );
 }
