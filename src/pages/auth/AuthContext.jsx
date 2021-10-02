@@ -14,13 +14,13 @@ export default function AuthContextProvider(props) {
 
   const login = async (data) => {
     // return console.log("login", jwt_decode(data.access_token));
-    let user = jwt_decode(data.access_token);
+    // let user = jwt_decode(data.access_token);
     dispatch({
       type: "LOGIN",
       payload: {
         access_token: data.access_token,
         refresh_token: data.refresh_token,
-        user: user,
+        // user: user,
       },
     });
   };

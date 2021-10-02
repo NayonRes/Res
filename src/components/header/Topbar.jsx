@@ -116,6 +116,7 @@ const Topbar = () => {
   let path = location.pathname;
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorElMaterial, setAnchorElMaterial] = useState(null);
+  const [anchorElHeader, setAnchorElHeader] = useState(null);
 //===========================Image DropDown start==================================
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -152,6 +153,24 @@ const Topbar = () => {
     history.push("/collapse-table");
   };
 //===========================Material DropDown End==================================
+//===========================Header DropDown start==================================
+
+  const handleClickHeader = (event) => {
+    setAnchorElHeader(event.currentTarget);
+  };
+  const handleCloseHeader = () => {
+    setAnchorElHeader(null);
+  };
+
+  const redirectToHeader1 = () => {
+    setAnchorElHeader(null);
+    history.push("/header1");
+  };
+  const redirectToHeader2 = () => {
+    setAnchorElHeader(null);
+    history.push("/header2");
+  };
+//===========================Header DropDown End==================================
   return (
     <div style={{ background: "#9ACD32" }}>
       <div className={classes.flexStyle}>
@@ -172,6 +191,41 @@ const Topbar = () => {
           </Link>
        
           </div>
+            <div className={`${classes.flexStyle} ${classes.rightItemPadding}`}>
+              <div className={classes.buttonItemPadding}>
+                <Button
+                  aria-controls="simple-menu-material"
+                  aria-haspopup="true"
+                  onClick={handleClickHeader}
+                  style={{
+                    backgroundColor: "transparent",
+                  }}
+                >
+                  Header
+                  <ExpandMoreIcon style={{ color: "#666" }} />
+                </Button>
+                <StyledMenu
+                  id="simple-menu-material"
+                  anchorEl={anchorElHeader}
+                  keepMounted
+                  open={Boolean(anchorElHeader)}
+                  onClose={handleCloseHeader}
+                >
+                  <StyledMenuItem onClick={redirectToHeader1}>
+                    Header 1
+                  </StyledMenuItem>
+                  <StyledMenuItem onClick={redirectToHeader2}>
+                    Header 2
+                  </StyledMenuItem>
+                  {/* <StyledMenuItem onClick={redirectToMultiImage}>
+                    Multiple Image
+                  </StyledMenuItem>
+                  <StyledMenuItem onClick={redirectToDropzoneImage}>
+                    DropZone Image
+                  </StyledMenuItem> */}
+                </StyledMenu>
+              </div>
+            </div>
             <div className={`${classes.flexStyle} ${classes.rightItemPadding}`}>
               <div className={classes.buttonItemPadding}>
                 <Button

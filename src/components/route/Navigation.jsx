@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "../../pages/Home";
 import SingleImage from "../../pages/image/SingleImage";
@@ -10,42 +10,43 @@ import CollapseTable from "../../pages/material/CollapseTable";
 import Test from "../../pages/Test";
 import ReactLocalization from "../../pages/ReactLocalization";
 import PasswordValidation from "../../pages/PasswordValidation";
+import Header1 from "../../pages/header/header1/Header1";
+import Header2 from "../../pages/header/header2/Header2";
 
-import { AuthContext } from '../../pages/auth/AuthContext';
-import { useLocation,Redirect } from 'react-router-dom';
+// import { AuthContext } from '../../pages/auth/AuthContext';
+import { useLocation, Redirect } from "react-router-dom";
 
-const RestrictedRoute = ({ component: Component, ...rest }) => {
-  const { admin_user_auth } = useContext(AuthContext);
+// const RestrictedRoute = ({ component: Component, ...rest }) => {
+//   const { admin_user_auth } = useContext(AuthContext);
 
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        admin_user_auth.access_token ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/signin',
-              state: { from: props.location },
-            }}
-          />
-        )
-      }
-    />
-  );
-};
-
+//   return (
+//     <Route
+//       {...rest}
+//       render={props =>
+//         admin_user_auth.access_token ? (
+//           <Component {...props} />
+//         ) : (
+//           <Redirect
+//             to={{
+//               pathname: '/signin',
+//               state: { from: props.location },
+//             }}
+//           />
+//         )
+//       }
+//     />
+//   );
+// };
 
 const Navigation = () => {
-  const { admin_user_auth } = useContext(AuthContext);
-  const location = useLocation();
+  // const { admin_user_auth } = useContext(AuthContext);
+  // const location = useLocation();
 
-  if (location.pathname === '' || location.pathname === '/') {
-    return <Redirect to={'/dashboard'} />;
-  } else if (admin_user_auth.access_token && location.pathname === '/signin') {
-    return <Redirect to={'/dashboard'} />;
-  }
+  // if (location.pathname === '' || location.pathname === '/') {
+  //   return <Redirect to={'/dashboard'} />;
+  // } else if (admin_user_auth.access_token && location.pathname === '/signin') {
+  //   return <Redirect to={'/dashboard'} />;
+  // }
 
   return (
     <>
@@ -59,7 +60,7 @@ const Navigation = () => {
         }}
       >
         <Switch>
-        {/* <RestrictedRoute exact path="/" component={Home} /> */}
+          {/* <RestrictedRoute exact path="/" component={Home} /> */}
           <Route exact path="/">
             <Home />
           </Route>
@@ -83,6 +84,12 @@ const Navigation = () => {
           </Route>
           <Route exact path="/react-localization">
             <ReactLocalization />
+          </Route>
+          <Route exact path="/header1">
+            <Header1 />
+          </Route>
+          <Route exact path="/header2">
+            <Header2 />
           </Route>
           <Route path="*">
             <NotFound />
