@@ -12,9 +12,11 @@ import ReactLocalization from "../../pages/ReactLocalization";
 import PasswordValidation from "../../pages/PasswordValidation";
 import Header1 from "../../pages/header/header1/Header1";
 import Header2 from "../../pages/header/header2/Header2";
+import OTP from "../../pages/OTP";
 
 // import { AuthContext } from '../../pages/auth/AuthContext';
 import { useLocation, Redirect } from "react-router-dom";
+import ContactAnimate from "../../pages/ContactAnimate";
 
 // const RestrictedRoute = ({ component: Component, ...rest }) => {
 //   const { admin_user_auth } = useContext(AuthContext);
@@ -81,6 +83,12 @@ const Navigation = () => {
           </Route>
           <Route exact path="/password-validation">
             <PasswordValidation />
+          </Route>
+          <Route exact path="/contact-animate">
+            <ContactAnimate />
+          </Route>
+          <Route exact path="/otp">
+            <OTP />
           </Route>
           <Route exact path="/react-localization">
             <ReactLocalization />

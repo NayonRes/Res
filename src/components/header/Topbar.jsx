@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { Typography, MenuItem, Button } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -104,10 +104,10 @@ const useStyles = makeStyles((theme) => ({
   imageStyle: {
     borderRadius: "50%",
   },
-  linkStyle:{
-    textDecoration:'none',
-    color:'black'
-  }
+  linkStyle: {
+    textDecoration: "none",
+    color: "black",
+  },
 }));
 const Topbar = () => {
   const classes = useStyles();
@@ -117,7 +117,7 @@ const Topbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorElMaterial, setAnchorElMaterial] = useState(null);
   const [anchorElHeader, setAnchorElHeader] = useState(null);
-//===========================Image DropDown start==================================
+  //===========================Image DropDown start==================================
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -138,8 +138,8 @@ const Topbar = () => {
     setAnchorEl(null);
     history.push("/dropzone-image");
   };
-//===========================Image DropDown End==================================
-//===========================Material DropDown start==================================
+  //===========================Image DropDown End==================================
+  //===========================Material DropDown start==================================
 
   const handleClickMaterial = (event) => {
     setAnchorElMaterial(event.currentTarget);
@@ -152,8 +152,8 @@ const Topbar = () => {
     setAnchorElMaterial(null);
     history.push("/collapse-table");
   };
-//===========================Material DropDown End==================================
-//===========================Header DropDown start==================================
+  //===========================Material DropDown End==================================
+  //===========================Header DropDown start==================================
 
   const handleClickHeader = (event) => {
     setAnchorElHeader(event.currentTarget);
@@ -170,27 +170,35 @@ const Topbar = () => {
     setAnchorElHeader(null);
     history.push("/header2");
   };
-//===========================Header DropDown End==================================
+  //===========================Header DropDown End==================================
   return (
-    <div style={{ background: "#9ACD32" }}>
+    <div style={{ background: "#9ACD32", display: "none" }}>
       <div className={classes.flexStyle}>
         <div style={{ flex: 1 }}>Item 1</div>
 
         {/* ========================================================================= */}
         <div style={{ flex: 3 }}>
           <div className={classes.flexStyle2}>
-          <div className={`${classes.rightItemPadding}`}>
-          <Link to="/react-localization" className={classes.linkStyle}>
-          React Localization
-          </Link>
-       
-          </div>
-          <div className={`${classes.rightItemPadding}`}>
-          <Link to="/password-validation" className={classes.linkStyle}>
-          Password Validation
-          </Link>
-       
-          </div>
+            <div className={`${classes.rightItemPadding}`}>
+              <Link to="/otp" className={classes.linkStyle}>
+                OTP Input
+              </Link>
+            </div>
+            <div className={`${classes.rightItemPadding}`}>
+              <Link to="/contact-animate" className={classes.linkStyle}>
+                Contact Animate
+              </Link>
+            </div>
+            <div className={`${classes.rightItemPadding}`}>
+              <Link to="/react-localization" className={classes.linkStyle}>
+                React Localization
+              </Link>
+            </div>
+            <div className={`${classes.rightItemPadding}`}>
+              <Link to="/password-validation" className={classes.linkStyle}>
+                Password Validation
+              </Link>
+            </div>
             <div className={`${classes.flexStyle} ${classes.rightItemPadding}`}>
               <div className={classes.buttonItemPadding}>
                 <Button
