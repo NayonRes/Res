@@ -172,7 +172,7 @@ const Topbar = () => {
   };
   //===========================Header DropDown End==================================
   return (
-    <div style={{ background: "#9ACD32", display: "none" }}>
+    <div style={{ background: "#9ACD32"}}>
       <div className={classes.flexStyle}>
         <div style={{ flex: 1 }}>Item 1</div>
 
